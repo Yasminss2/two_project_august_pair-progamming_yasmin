@@ -23,38 +23,37 @@ from PIL import Image, ImageTk
 
 # 1. Função que exibe a mensagem do evento
 def mostrar_fato(detalhe):
-    # messagebox.showinfo("Fato Histórico", detalhe)
-    messagebox.showinfo("Curiosidade Eufrasia", detalhe)
+    messagebox.showinfo("História de Eufrásia", detalhe)
 
 
 # 2. Configuração da Janela Principal
 janela = tk.Tk()
 janela.title("História Financeira: Eufrásia Teixeira Leite")
-# janela.geometry("500x580")  # Ajustado o tamanho da tela
-janela.geometry("500x580")  # Ajustado o tamanho da tela
-janela.configure(bg="#f4f4f9")
+janela.geometry("480x800")  # Ajustado o tamanho da tela
+janela.configure(bg="#262a86")
 
 # 3. Título e Subtítulo
 lbl_titulo = tk.Label(
     janela,
     text="Eufrásia Teixeira Leite",
     font=("Times New Roman", 26, "bold"),
-    bg="#f4f4f9",
-    fg="#1b365d",
+    bg="#262a86",
+    fg="#850505",
 )
 lbl_titulo.pack(pady=7)
 # lbl_titulo.pack(pady=120)
 
 lbl_subtitulo = tk.Label(
     janela,
-    text="A primeira investidora global do Brasil",
+    text="Uma mulher que escolheu sua liberdade e fez dela parte do seu legado",
     font=("Arial", 10, "italic"),
-    bg="#f4f4f9",
+    bg="#262a86",
+    fg="#e5c701",
 )
 lbl_subtitulo.pack(pady=2)
 
 # 4. Carregando Imagem da Internet
-url_imagem = "https://upload.wikimedia.org/wikipedia/commons/4/40/Eufr%C3%A1sia_Teixeira_Leite_aos_30_anos_%282%29.jpg"
+url_imagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3gbIi1DCAoEmDzTJ34sXyO7HiOnA9LcoA2rmbS7zRbg&s=10"
 # url_imagem = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Tarsila_do_Amaral%2C_ca._1925.jpg/960px-Tarsila_do_Amaral%2C_ca._1925.jpg"
 
 # Criando variável global da foto para o Tkinter não apagar da memória
@@ -92,17 +91,18 @@ except Exception as erro:
         text="[Foto de Eufrásia Teixeira Leite - Indisponível sem internet]",
         font=("Arial", 9, "italic"),
         fg="gray",
-        bg="#f4f4f9",
+        bg="#262a86",
     )
     lbl_erro.pack(pady=10)
 
 # 5. Dados da Linha do Tempo (Dicionário)
 eventos = {
-    "1850 - Nascimento": "Nasceu em Vassouras (RJ), no auge do ciclo do café.",
-    "1872 - Herança & Europa": "Após perder os pais, mudou-se para Paris e assumiu a gestão da fortuna da família.",
+    "1850 - Nascimento": "Nasceu em Vassouras (RJ), em uma família rica e ligada na produção de café.",
+    "1872 - Herança & Europa": "Após perder os pais, herdou uma grande fortuna, se mudou para Paris e investiu em diferentes áreas.",
     "1873-1930 - Carteira Global": "Investiu em títulos, ações e ferrovias em 13 países e 7 moedas diferentes.",
     "1930 - Legado": "Faleceu deixando sua fortuna para causas sociais e educacionais no Brasil.",
-    # herança, relacionamento.
+    "1930-1950 - Construindo a Herança": "O Patrimônio incluía ímoveis, dinheiro, ações, investimentos no Brasil e no exterior.",
+    "1873-1887 - Relacionamento": "Vivendo um romance com Joaquim Nabuco, chegaram a ficar noivos, mas nunca se casaram. Eufrásia pensava em administrar seus investimentos e queria permanecer na Europa, enquanto Nabuco desejava permanecer no Brasil."
 }
 
 # 6. Criação dos Botões
@@ -111,7 +111,7 @@ for data, detalhe in eventos.items():
         janela,
         text=data,
         font=("Arial", 11),
-        bg="#1b365d",
+        bg="#850505",
         fg="white",
         relief="flat",
         command=lambda d=detalhe: mostrar_fato(d),
