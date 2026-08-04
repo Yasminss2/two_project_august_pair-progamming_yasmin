@@ -8,13 +8,14 @@ import tkinter as tk
 from tkinter import messagebox, ttk
 
 # 1. Paleta de Cores Personalizada
-COLOR_AZUL_ESC = "#004d6e"  # AE (Fundo das abas e headers)
-COLOR_AZUL_MED = "#0081ab"  # AM (Bordas e detalhes)
-COLOR_AZUL_CLA = "#00b1cd"  # AC (Destaque e fundos secundários)
+COLOR_VER_ESC = "#480e0e"  # AE (Fundo das abas e headers)
+COLOR_VER_MED = "#8b2121"  # AM (Bordas e detalhes)
+COLOR_VER_CLA = "#d74c9b"  # AC (Destaque e fundos secundários)
 COLOR_VERDE = "#a6c844"  # V  (Botão de Entrada / Sucesso)
 COLOR_ROSA = "#b83764"  # R  (Botão de Saída / Alertas)
-COLOR_AMARELO = "#edce01"  # A  (Destaque de Cripto / Seleção de Aba)
-COLOR_ACO = "#4a3336"  # B  (Texto escuro / Fundo principal)
+COLOR_ROSINHA = "#f083d6"  # A  (Destaque de Cripto / Seleção de Aba)
+COLOR_ACO = "#16940d"  # B  (Texto escuro / Fundo principal)
+COLOR_BRANCO = "#FEFDFF"
 
 # 2. Variáveis Globais de Estado
 saldo = 1000.00
@@ -92,34 +93,34 @@ def comprar_btc():
 janela = tk.Tk()
 janela.title("Simulador Financeiro - Padrão B3")
 janela.geometry("600x480")
-janela.configure(bg=COLOR_AZUL_ESC)
+janela.configure(bg=COLOR_VER_ESC)
 
 # Estilo para Abas (TTK)
 style = ttk.Style()
 style.theme_use("default")
-style.configure("TNotebook", background=COLOR_AZUL_ESC)
+style.configure("TNotebook", background=COLOR_VER_ESC)
 style.configure(
     "TNotebook.Tab",
-    background=COLOR_AZUL_MED,
+    background=COLOR_VER_MED,
     foreground="white",
     padding=[12, 6],
     font=("Arial", 10, "bold"),
 )
 style.map(
     "TNotebook.Tab",
-    background=[("selected", COLOR_AMARELO)],
-    foreground=[("selected", COLOR_ACO)],
+    background=[("selected", COLOR_ROSINHA)],
+    foreground=[("selected", COLOR_BRANCO)],
 )
 
 # Header Superior
-header = tk.Frame(janela, bg=COLOR_AZUL_ESC, height=50)
+header = tk.Frame(janela, bg=COLOR_VER_ESC, height=50)
 header.pack(fill="x")
 lbl_titulo = tk.Label(
     header,
     text="B3 - SIMULADOR EDUCACIONAL",
     font=("Arial", 14, "bold"),
     fg="white",
-    bg=COLOR_AZUL_ESC,
+    bg=COLOR_VER_ESC,
 )
 lbl_titulo.pack(pady=10)
 
@@ -140,7 +141,7 @@ lbl_saldo = tk.Label(
     aba_conta,
     text=f"Saldo Disponível: R$ {saldo:.2f}",
     font=("Arial", 13, "bold"),
-    fg=COLOR_AZUL_ESC,
+    fg=COLOR_VER_ESC,
     bg="white",
 )
 lbl_saldo.pack(pady=20)
@@ -159,7 +160,7 @@ ent_valor_conta = tk.Entry(
     font=("Arial", 11),
     relief="solid",
     bd=1,
-    highlightbackground=COLOR_AZUL_MED,
+    highlightbackground=COLOR_VER_MED,
 )
 ent_valor_conta.pack(pady=5)
 
@@ -195,7 +196,7 @@ lbl_cripto_titulo = tk.Label(
     aba_cripto,
     text="Mercado Digital - Bitcoin (Simulado)",
     font=("Arial", 12, "bold"),
-    fg=COLOR_AZUL_ESC,
+    fg=COLOR_VER_ESC,
     bg="white",
 )
 lbl_cripto_titulo.pack(pady=15)
@@ -213,7 +214,7 @@ lbl_btc = tk.Label(
     aba_cripto,
     text=f"Seu Saldo BTC: {cripto_btc:.6f}",
     font=("Arial", 11, "bold"),
-    fg=COLOR_AZUL_MED,
+    fg=COLOR_VER_MED,
     bg="white",
 )
 lbl_btc.pack(pady=15)
@@ -221,7 +222,7 @@ lbl_btc.pack(pady=15)
 btn_comprar_btc = tk.Button(
     aba_cripto,
     text="Comprar R$ 100,00 em BTC",
-    bg=COLOR_AMARELO,
+    bg=COLOR_ROSINHA,
     fg=COLOR_ACO,
     font=("Arial", 10, "bold"),
     relief="flat",
@@ -237,7 +238,7 @@ lst_extrato = tk.Listbox(
     font=("Consolas", 10),
     fg=COLOR_ACO,
     bg="#F9F9F9",
-    selectbackground=COLOR_AZUL_CLA,
+    selectbackground=COLOR_VER_CLA,
     relief="solid",
     bd=1,
 )
